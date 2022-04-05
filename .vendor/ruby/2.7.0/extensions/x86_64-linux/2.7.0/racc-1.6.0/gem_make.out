@@ -1,0 +1,17 @@
+current directory: /home/mederic/techshelter/nika/.vendor/ruby/2.7.0/gems/racc-1.6.0/ext/racc/cparse
+/home/mederic/.rvm/rubies/ruby-2.7.2/bin/ruby -I /home/mederic/.rvm/rubies/ruby-2.7.2/lib/ruby/2.7.0 -r ./siteconf20220405-10423-1psnfsv.rb extconf.rb
+checking for rb_block_call()... yes
+checking for rb_ary_subseq()... yes
+creating Makefile
+
+current directory: /home/mederic/techshelter/nika/.vendor/ruby/2.7.0/gems/racc-1.6.0/ext/racc/cparse
+make "DESTDIR=" clean
+
+current directory: /home/mederic/techshelter/nika/.vendor/ruby/2.7.0/gems/racc-1.6.0/ext/racc/cparse
+make "DESTDIR="
+compiling cparse.c
+linking shared-object racc/cparse.so
+
+current directory: /home/mederic/techshelter/nika/.vendor/ruby/2.7.0/gems/racc-1.6.0/ext/racc/cparse
+make "DESTDIR=" install
+/usr/bin/install -m 0755 cparse.so ./.gem.20220405-10423-sxsc17/racc

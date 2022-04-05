@@ -1,0 +1,15 @@
+current directory: /home/mederic/techshelter/nika/.vendor/ruby/3.0.0/gems/bootsnap-1.11.1/ext/bootsnap
+/home/mederic/.rvm/rubies/ruby-3.0.0/bin/ruby -I /home/mederic/.rvm/rubies/ruby-3.0.0/lib/ruby/3.0.0 -r ./siteconf20220405-15174-c32biw.rb extconf.rb
+creating Makefile
+
+current directory: /home/mederic/techshelter/nika/.vendor/ruby/3.0.0/gems/bootsnap-1.11.1/ext/bootsnap
+make "DESTDIR=" clean
+
+current directory: /home/mederic/techshelter/nika/.vendor/ruby/3.0.0/gems/bootsnap-1.11.1/ext/bootsnap
+make "DESTDIR="
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.so
+
+current directory: /home/mederic/techshelter/nika/.vendor/ruby/3.0.0/gems/bootsnap-1.11.1/ext/bootsnap
+make "DESTDIR=" install
+/usr/bin/install -m 0755 bootsnap.so ./.gem.20220405-15174-3a0ove/bootsnap

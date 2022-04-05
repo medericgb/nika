@@ -1,0 +1,15 @@
+current directory: /home/mederic/techshelter/nika/.vendor/ruby/2.7.0/gems/bindex-0.8.1/ext/skiptrace
+/home/mederic/.rvm/rubies/ruby-2.7.2/bin/ruby -I /home/mederic/.rvm/rubies/ruby-2.7.2/lib/ruby/2.7.0 -r ./siteconf20220405-10423-szf2am.rb extconf.rb
+creating Makefile
+
+current directory: /home/mederic/techshelter/nika/.vendor/ruby/2.7.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" clean
+
+current directory: /home/mederic/techshelter/nika/.vendor/ruby/2.7.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR="
+compiling cruby.c
+linking shared-object skiptrace/internal/cruby.so
+
+current directory: /home/mederic/techshelter/nika/.vendor/ruby/2.7.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" install
+/usr/bin/install -m 0755 cruby.so ./.gem.20220405-10423-1dudhvp/skiptrace/internal
