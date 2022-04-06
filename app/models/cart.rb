@@ -4,8 +4,6 @@ class Cart < ApplicationRecord
   
   def add_product(product)
     chosen_product = product
-    
-    # raise self.inspect
     if self.products.include?(chosen_product)
       item = self.line_items.find_by(:product_id => chosen_product.id)
       item.quantity += 1
@@ -24,7 +22,9 @@ class Cart < ApplicationRecord
     end
   end
 
-  def sub_total
-    
+  def total_price
+    sum = 0
+    self.line_items.each { |item| sum += item.sub_total }
+    return sum
   end
 end

@@ -15,11 +15,13 @@
 <ul>
   <% @cart.line_items.each do |item| %>
     <li>
-      <%= item.product.name %> | x<%=  item.quantity %> 
+      <%= item.product.name %> | x<%=  item.quantity %> |
+      <%= item.sub_total %> |
       <%= link_to "Moins (-1)", line_item_reduce_path(item), method: :post %>
       <%= link_to "Plus (+1)", line_item_add_path(item), method: :post %> | 
       <%= link_to "Supprimer", line_item_path(item), method: :delete %> 
     </li>
   <% end %>
 </ul>
+<p>Total price: <%= @cart.total_price %></p>
 
