@@ -3,6 +3,23 @@
 
 <% @products.each do |product| %>
   <p>
-    <%= product.code %> / <%= product.name %>, <%= product.price %> <%= link_to "Add to cart", add_to_cart(product) %>
+    <%= product.code %> / <%= product.name %>, <%= product.price %>
+    <%= link_to "Add to cart", line_items_create_path(product), method: :post %>
   </p>
 <% end %>
+
+
+<p>
+  <h2>Cart items <%= link_to "X", cart_path(@cart), method: :delete %></h2>
+</p>
+<ul>
+  <% @cart.line_items.each do |item| %>
+    <li>
+      <%= item.product.name %> | x<%=  item.quantity %> 
+      <%= link_to "Moins (-1)", line_item_reduce_path(item), method: :post %>
+      <%= link_to "Plus (+1)", line_item_add_path(item), method: :post %> | 
+      <%= link_to "Supprimer", line_item_path(item), method: :delete %> 
+    </li>
+  <% end %>
+</ul>
+
