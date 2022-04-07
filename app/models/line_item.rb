@@ -41,6 +41,6 @@ class LineItem < ApplicationRecord
         sub = self.quantity * self.product.price 
       end
     end  
-    return sub
+    return sub.ceil(2)
   end
 end

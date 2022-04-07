@@ -3,6 +3,9 @@ require 'rails_helper'
 RSpec.describe Cart, type: :model do
   let(:product_a) { FactoryBot.create(:product) }
   let(:product_b) { FactoryBot.create(:product, code: "MG1", name: "Mango", price: 3.99) }
+  let(:grn) { FactoryBot.create(:product, code: "GR1", name: "Green", price: 3.11) }
+  let(:str) { FactoryBot.create(:product, code: "SR1", name: "Strawberries", price: 5.00) }
+  let(:cff) { FactoryBot.create(:product, code: "CF1", name: "Coffee", price: 11.23) }
   let(:cart) { FactoryBot.create(:cart) }
   let(:line_item) { FactoryBot.create(:line_item, product_id: product_a.id, cart_id: cart.id, quantity: 1) }
 
@@ -42,7 +45,37 @@ RSpec.describe Cart, type: :model do
     end
   end
 
-  describe ".sub_total" do
-    
+  describe ".total_price" do
+    it "contain GR1,SR1,GR1,GR1,CF1" do
+      cart.add_product(grn)
+      cart.add_product(str)
+      cart.add_product(grn)
+      cart.add_product(grn)
+      cart.add_product(cff)
+      expect(cart.total_price).to eq(22.45)
+    end
+
+    it "contain GR1,GR1" do
+      cart.add_product(grn)
+      cart.add_product(grn)
+      expect(cart.total_price).to eq(3.11)
+    end
+
+    it "contain SR1,SR1,GR1,SR1" do
+      cart.add_product(str)
+      cart.add_product(str)
+      cart.add_product(grn)
+      cart.add_product(str)
+      expect(cart.total_price).to eq(16.61)
+    end
+
+    it "contain GR1,CF1,SR1,CF1,CF1" do
+      cart.add_product(grn)
+      cart.add_product(cff)
+      cart.add_product(str)
+      cart.add_product(cff)
+      cart.add_product(cff)
+      expect(cart.total_price).to eq(30.57)
+    end
   end
 end
