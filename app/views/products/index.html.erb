@@ -1,5 +1,4 @@
-<h1>Products#index</h1>
-<p>Find me in app/views/products/index.html.erb</p>
+<h1>Nika nika Store</h1>
 
 <% @products.each do |product| %>
   <p>
@@ -10,7 +9,7 @@
 
 
 <p>
-  <h2>Cart items <%= link_to "X", cart_path(@cart), method: :delete %></h2>
+  <h2>Cart items <%= link_to "X", clear_cart_path(@cart), method: :post, data: { confirm: "Are you sure to empty cart" } %></h2>
 </p>
 <ul>
   <% @cart.line_items.each do |item| %>
@@ -23,5 +22,20 @@
     </li>
   <% end %>
 </ul>
-<p>Total price: <%= @cart.total_price %></p>
+<p>Total price: <%= @cart.total_price %> | <%= link_to "Valider 'Cart'", orders_path(@cart), method: :post %></p>
 
+<h2>Orders history</h2>
+<% @orders.each do |order| %>
+  <p>
+    ### Order N*<%= order.id %>
+  </p>
+  <% order.cart.line_items.each do |item| %>
+    <p>
+      - <%= item.product.name %> x<%= item.quantity %> <%= item.sub_total %>
+    </p>
+  <% end %>
+  <p>
+    Total price: (<%= order.cart.total_price %>)
+  </p>
+  <p>------------------------------------------------------------------------------</p>
+<% end %>

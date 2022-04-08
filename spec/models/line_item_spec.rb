@@ -48,7 +48,7 @@ RSpec.describe LineItem, type: :model do
         cart.add_product(grn)
         cart.add_product(grn)
         item = cart.line_items.find { |item| item.product_id == grn.id }
-        expect(item.sub_total).to eq(grn.price * (item.quantity / 2))
+        expect(item.sub_total).to eq(grn.price)
       end
     end
 

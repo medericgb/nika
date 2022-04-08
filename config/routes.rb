@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  resources :products, only: [:index]
+  get '/products' => "products#index"
   
   get 'carts/:id' => "carts#show", as: "cart"
+  post 'carts/:id' => "carts#clear_cart", as: "clear_cart"
   delete 'carts/:id' => "carts#destroy"
 
   post 'line_items/:id' => "line_items#create", as: "line_items_create"
@@ -10,6 +11,8 @@ Rails.application.routes.draw do
 
   get 'line_items/:id' => "line_items#show", as: "line_item"
   delete 'line_items/:id' => "line_items#destroy"
+  
+  post 'carts/:id/orders' => "orders#create", as: "orders"
   
   root to: "products#index"
 end
